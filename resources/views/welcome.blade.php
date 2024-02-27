@@ -17,23 +17,23 @@
 </head>
 
 <body class="h-screen flex flex-col justify-between">
-    <header class="bg-gray-900 text-white py-4 flex justify-center items-center">
-        <h2 class="text-2xl">Header</h2>
+    <header class="bg-black text-white py-4 flex justify-center items-center">
+        <h2 class="text-2xl">Marketor</h2>
     </header>
     <main class="flex-grow">
         <div class="w-full flex justify-center items-center py-24">
             <div class="w-full max-w-xl mx-4 p-8 border border-gray-400 bg-primary-200 rounded-xl">
-                <form action="{{ route('payment') }}" class="flex flex-col gap-2" method="POST">
+                <form action="{{ route('payment') }}" class="flex flex-col gap-4" method="POST">
                     @csrf
-                    <label for="">Donate Any Amount</label>
-                    <input type="number" name="amount" id="" class="py-2 px-5 rounded border border-gray-400" placeholder="donation amount">
-                    <button type="submit" class="bg-gray-500 text-white rounded py-2">Pay</button>
+                    <label for="amount" class="text-xl">Donate Any Amount</label>
+                    <input type="number" name="amount" id="amount" class="py-2 px-5 rounded border border-gray-400" placeholder="donation amount">
+                    <button type="submit" class="bg-gray-900 text-white rounded py-2">Pay</button>
                 </form>
             </div>
         </div>
     </main>
-    <footer class="bg-gray-900 text-white py-4 flex justify-center items-center">
-        <h2 class="text-2xl">Footer</h2>
+    <footer class="bg-black text-white py-4 flex justify-center items-center">
+        <h2 class="text-xl tetx-white">Payments Secured by <strong>SSL Encryption</strong></h2>
     </footer>
     <!-- footer end -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
