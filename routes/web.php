@@ -2,15 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-include base_path('routes/admin.php');
-include base_path('routes/auth.php');
-include base_path('routes/website.php');
-include base_path('routes/payment.php');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-Route::fallback(function () {
-    if (request()->is('419')) {
-        return view('errors.419');
-    }
-
-    return view('errors.404');
+Route::get('/', function () {
+    return view('welcome');
 });
