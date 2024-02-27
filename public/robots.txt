@@ -1,3 +1,2 @@
-User-Agent: *
-Allow: *
-Sitemap: https://jobpilot.templatecookie.com/sitemap.xml
+User-agent: *
+Disallow:

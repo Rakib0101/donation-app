@@ -2,148 +2,21 @@
 
 namespace Database\Seeders;
 
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Database\Seeders\ResumeSeeder;
-use Modules\Faq\Database\Seeders\FaqCategorySeeder;
-use Modules\Faq\Database\Seeders\FaqDatabaseSeeder;
-use Modules\Seo\Database\Seeders\SeoDatabaseSeeder;
-use Modules\Blog\Database\Seeders\BlogDatabaseSeeder;
-use Modules\Currency\Database\Seeders\CurrencyDatabaseSeeder;
-use Modules\Language\Database\Seeders\LanguageDatabaseSeeder;
-use Modules\Location\Database\Seeders\LocationDatabaseSeeder;
-use Modules\SetupGuide\Database\Seeders\SetupGuideDatabaseSeeder;
-use Modules\Testimonial\Database\Seeders\TestimonialDatabaseSeeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        // For Packaging
-        // $this->packagingVersion();
+        // \App\Models\User::factory(10)->create();
 
-        // For Development
-        $this->developmentVersion();
-    }
-
-    private function packagingVersion()
-    {
-        $this->call([
-            MenuSettingsSeeder::class,
-            RolePermissionSeeder::class,
-
-            PlanDescriptionSeeder::class,
-
-            SettingSeeder::class,
-            LocationDatabaseSeeder::class,
-            CmsSeeder::class,
-            SeoDatabaseSeeder::class,
-            SetupGuideDatabaseSeeder::class,
-            CookiesSeeder::class,
-            MasterSeeder::class,
-            ApplicationGroupSeeder::class,
-            CmsContentSeeder::class,
-
-            // Attribute
-            ProfessionSeeder::class,
-            JobTypeSeeder::class,
-            JobCategorySeeder::class,
-            JobRoleSeeder::class,
-            ExperienceSeeder::class,
-            EducationSeeder::class,
-            SalaryTypeSeeder::class,
-            IndustryTypeSeeder::class,
-            OrganizationTypeSeeder::class,
-            TeamSizeSeeder::class,
-
-            // Candidate Skills and Language
-            SkillSeeder::class,
-            CandidateSkillSeeder::class,
-            CandidateLanguageSeeder::class,
-
-            // jobs tags, benefits, skill
-            TagSeeder::class,
-
-            BenefitSeeder::class,
-        ]);
-    }
-
-    private function developmentVersion()
-    {
-        $this->call([
-            MenuSettingsSeeder::class,
-
-            RolePermissionSeeder::class,
-
-            PlanDescriptionSeeder::class,
-
-            LocationDatabaseSeeder::class,
-            ManualPaymentSeeder::class,
-
-            // Setting
-            SettingSeeder::class,
-            CmsSeeder::class,
-            CurrencyDatabaseSeeder::class,
-            SeoDatabaseSeeder::class,
-            LanguageDatabaseSeeder::class,
-            SetupGuideDatabaseSeeder::class,
-            CookiesSeeder::class,
-
-            // Job Attributes
-            EducationSeeder::class,
-            ExperienceSeeder::class,
-            JobTypeSeeder::class,
-            JobRoleSeeder::class,
-            SalaryTypeSeeder::class,
-            TeamSizeSeeder::class,
-            OrganizationTypeSeeder::class,
-            ProfessionSeeder::class,
-            IndustryTypeSeeder::class,
-            JobCategorySeeder::class,
-
-            // Company, candidate and admin
-            CompanySeeder::class,
-            CandidateSeeder::class,
-            AdminSeeder::class,
-
-            // Candidate Resume
-            CandidateResumeSeeder::class,
-
-            // Jobs and bookmark
-            JobSeeder::class,
-            CandidateBookmarks::class,
-            CandidateAppliedJobSeeder::class,
-            CompanyBookmarks::class,
-
-            // Company and candidate messenger
-            MessengerSeeder::class,
-
-            // Others
-            TestimonialDatabaseSeeder::class,
-            BlogDatabaseSeeder::class,
-            FaqCategorySeeder::class,
-            FaqDatabaseSeeder::class,
-            EarningSeeder::class,
-            CmsContentSeeder::class,
-
-            // Candidate Skills, Language, Experience and Education
-            SkillSeeder::class,
-            CandidateSkillSeeder::class,
-            CandidateLanguageSeeder::class,
-            CandidateExperienceSeeder::class,
-            CandidateEducationSeeder::class,
-            ResumeSeeder::class,
-
-            // jobs tags, benefits,skills
-            TagSeeder::class,
-            BenefitSeeder::class,
-            JobTagSeeder::class,
-            JobBenefitSeeder::class,
-            JobSkillSeeder::class,
-        ]);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }
