@@ -22,31 +22,35 @@
     </header>
     <main class="flex-grow">
         <div class="container mx-auto w-full flex flex-col justify-start items-center">
-            <div class="text-black text-base font-semibold mb-8 p-5">
-                ক্যাশ আউট সর্বদা রাউন্ড ফিগার করবেন লাস্ট এ যেন জিরো(0) / পাঁচ (5) থাকে,
-                <br />
-                অনুগ্রহ করে কোন প্রকার পয়সা পাঠাবেন না,
-                <br />
-                অন্যথায় আপনার অর্ডার বাতিল করা হবে
-                <br />
-                <br/>
-                উদাহরণস্বরূপ : আপনার ক্যাশ আউট এমাউন্ট যদি 1143.83 হয় <br/> আপনি 1140 টাকা ক্যাশ আউট করবেন অথবা আপনার এমন
-                যদি হয় <br/> 1148.56 আপনি ক্যাশ আউট করবেন 1150 Tk অবশ্যই মনে রাখবেন <br/> শেষের সংখ্যা যেন জিরো(0) /পাঁচ (5)
-                হয়
-                <br />
-                <br/>
-                Best Regards
-                <br />
-                From Astropay
-            </div>
-            <div class="w-full !mx-5 max-w-xl p-5 border border-gray-400 bg-primary-200 rounded-xl">
-                <form action="{{ route('payment') }}" class="flex flex-col gap-4" method="POST">
-                    @csrf
-                    <label for="amount" class="text-xl">Please Insert Pay Amount</label>
-                    <input type="number" name="amount" id="amount" class="py-2 px-5 rounded border border-gray-400"
-                        placeholder="enter amount">
-                    <button type="submit" class="bg-gray-900 text-white rounded py-2">Pay</button>
-                </form>
+            <div class="m-2.5">
+                <div class="text-black text-base font-semibold mb-3 px-3">
+                    ক্যাশ আউট সর্বদা রাউন্ড ফিগার করবেন লাস্ট এ যেন জিরো(0) / পাঁচ (5) থাকে,
+                    <br />
+                    অনুগ্রহ করে কোন প্রকার পয়সা পাঠাবেন না,
+                    <br />
+                    অন্যথায় আপনার অর্ডার বাতিল করা হবে
+                    <br />
+                    <br />
+                    উদাহরণস্বরূপ : আপনার ক্যাশ আউট এমাউন্ট যদি 1143.83 হয় <br /> আপনি 1140 টাকা ক্যাশ আউট করবেন অথবা
+                    আপনার এমন
+                    যদি হয় <br /> 1148.56 আপনি ক্যাশ আউট করবেন 1150 Tk অবশ্যই মনে রাখবেন <br /> শেষের সংখ্যা যেন
+                    জিরো(0) /পাঁচ (5)
+                    হয়
+                    <br />
+                    <br />
+                    Best Regards
+                    <br />
+                    From Astropay
+                </div>
+                <div class="w-full max-w-xl p-3 border border-gray-400 bg-primary-200 rounded-xl">
+                    <form action="{{ route('payment') }}" class="flex flex-col gap-2.5" method="POST">
+                        @csrf
+                        <label for="amount" class="text-xl">Please Insert Pay Amount</label>
+                        <input type="number" name="amount" id="amount"
+                            class="py-2 px-5 rounded border border-gray-400" placeholder="enter amount">
+                        <button type="submit" class="bg-gray-900 text-white rounded py-2">Pay</button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
