@@ -13,22 +13,6 @@
 
     <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .focus-color {
-            background-color: #24223e;
-            background-image: url('{{ asset('image/text-bg.svg') }}');
-            background-position: center center;
-            -webkit-background-clip: text;
-            background-clip: text;
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: #24223e;
-            font-weight: 900;
-            font-size: 20px;
-            line-height: 28px;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
 
 </head>
 
@@ -37,8 +21,8 @@
         <h2 class="text-2xl">Marketor</h2>
     </header>
     <main class="flex-grow">
-        <div class="container mx-auto w-full flex flex-col justify-center items-center py-24">
-            <div class="focus-color my-8 p-5">
+        <div class="container mx-auto w-full flex flex-col justify-start items-center">
+            <div class="text-black text-base font-semibold mb-8 p-5">
                 ক্যাশ আউট সর্বদা রাউন্ড ফিগার করবেন লাস্ট এ যেন জিরো(0) / পাঁচ (5) থাকে,
                 <br />
                 অনুগ্রহ করে কোন প্রকার পয়সা পাঠাবেন না,
@@ -55,7 +39,7 @@
                 <br />
                 From Astropay
             </div>
-            <div class="w-full !mx-5 max-w-2xl p-5 border border-gray-400 bg-primary-200 rounded-xl">
+            <div class="w-full !mx-5 max-w-xl p-5 border border-gray-400 bg-primary-200 rounded-xl">
                 <form action="{{ route('payment') }}" class="flex flex-col gap-4" method="POST">
                     @csrf
                     <label for="amount" class="text-xl">Please Insert Pay Amount</label>
