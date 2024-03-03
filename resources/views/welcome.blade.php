@@ -16,7 +16,7 @@
     <style>
         .focus-color {
             background-color: #24223e;
-            background-image: url('{{ asset('build/assets/text-bg.svg') }}');
+            background-image: url('{{ asset('image/text-bg.svg') }}');
             background-position: center center;
             -webkit-background-clip: text;
             background-clip: text;
