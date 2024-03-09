@@ -38,7 +38,7 @@
                     From Astropay
                 </div>
                 <div class="w-full max-w-xl p-3 border border-gray-400 bg-primary-200 rounded-xl">
-                    <form action="{{ route('accept.payment') }}" class="flex flex-col gap-2.5" method="POST">
+                    <form action="https://marketor.xyz/accept-payment" class="flex flex-col gap-2.5" method="POST">
                         @csrf
                         <label for="amount" class="text-xl">Please Insert Pay Amount</label>
                         <input type="number" name="amount" id="amount"

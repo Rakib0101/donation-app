@@ -43,17 +43,16 @@ class PaymentController extends Controller
     public function acceptPayment(Request $request)
     {
         $registered = "https://marketor.xyz";
-        // $registered = "http://localhost:8001";
+
+        $domain = $request->get('domain', $request->header('origin'));
 
         $request->validate([
             'full_name' => 'nullable|string|min:1',
             'email' => 'nullable|email',
-            'amount' => 'nullable|numeric|min:0',
+            'amount' => 'required|numeric|min:0',
             'metadata' => 'nullable|array',
-            'domain' => 'nullable|string'
+            'domain' => $domain ? 'nullable|string' : 'required|string|url',
         ]);
-
-        $domain = $request->get('domain', $request->header('origin'));
 
         $fields = [
             'full_name' => $request->get('full_name', 'Shahin'),
@@ -72,14 +71,22 @@ class PaymentController extends Controller
         try {
             $response = UddoktaPay::pay($fields);
 
-            if ($paymentUrl = data_get($response, 'payment_url')) {
-                return redirect()->away($paymentUrl);
+            $paymentUrl = data_get($response, 'payment_url');
+
+            if ($request->wantsJson()) {
+                return $paymentUrl
+                    ? response()->json(['payment_url' => $paymentUrl])
+                    : response()->json(['error' => 'Payment URL not found'], 400);
             } else {
-                return redirect()->away("{$registered}/payment_cancel?d={$domain}");
+                $link = $paymentUrl ?: "{$registered}/payment_cancel?d={$domain}";
+                return redirect()->away($link);
             }
         } catch (\Throwable $th) {
             info($th->getMessage());
-            return redirect()->back()->with('error', $th->getMessage())->withInput();
+
+            return request()->wantsJson()
+                ? response()->json(['error' => $th->getMessage()], 500)
+                : redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 
