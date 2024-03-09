@@ -85,7 +85,10 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
-        if ($request->get('d')) {
+        $d = $request->get('d');
+        $host = $request->getSchemeAndHttpHost();
+
+        if ($d && $d != $host) {
             return redirect()->away($request->d);
         }
 
@@ -94,7 +97,10 @@ class PaymentController extends Controller
 
     public function cancel(Request $request)
     {
-        if ($request->get('d')) {
+        $d = $request->get('d');
+        $host = $request->getSchemeAndHttpHost();
+
+        if ($d && $d != $host) {
             return redirect()->away($request->d);
         }
 
