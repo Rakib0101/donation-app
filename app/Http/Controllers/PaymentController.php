@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Facades\UddoktaPay;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
 class PaymentController extends Controller
 {
     public function pay(Request $request)
     {
-        $baseURL = 'https://pay.marketor.xyz/';
-        $apiKEY = 'ddb312107b353a60156dbab85456c1024b9928a5';
-
         $amount = $request->input('amount');
 
         $fields = [
@@ -23,19 +19,13 @@ class PaymentController extends Controller
                 'user_id'   => '10',
                 'order_id'  => '50'
             ],
-            'redirect_url'  => 'http://localhost:8001/payment_success?d=',
+            'redirect_url'  => 'https://marketor.xyz/payment_success',
             'return_type'   => 'GET',
-            'cancel_url'    => 'http://localhost:8001/payment_cancel?d=',
-            'webhook_url'   => 'http://localhost:8001',
+            'cancel_url'    => 'https://marketor.xyz/payment_cancel',
+            'webhook_url'   => 'https://marketor.xyz',
         ];
 
-        $response = Http::withHeaders([
-            "RT-UDDOKTAPAY-API-KEY" => $apiKEY,
-            "Accept" => "application/json",
-            "Content-Type" => "application/json"
-        ])
-            ->post("$baseURL/api/checkout-v2", $fields)
-            ->json();
+        $response = UddoktaPay::pay($fields);
 
         return redirect()->away(data_get($response, 'payment_url'));
     }
@@ -50,7 +40,7 @@ class PaymentController extends Controller
             'full_name' => 'nullable|string|min:1',
             'email' => 'nullable|email',
             'amount' => 'required|numeric|min:0',
-            'metadata' => 'nullable|array',
+            'metadata' => 'nullable',
             'domain' => $domain ? 'nullable|string' : 'required|string|url',
         ]);
 
